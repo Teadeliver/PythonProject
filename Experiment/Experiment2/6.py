@@ -1,5 +1,5 @@
 try:
-    f = open("D:\\Python放置文件\\hgb.txt", "w")
+    f = open("hgb.txt", "w")
     while True:
         s = input('请输入字符串（按Q结束）')
         if s.upper() == 'Q': break
