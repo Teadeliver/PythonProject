@@ -32,28 +32,28 @@ def getValue(n):
 
 
 def getPuk():
-    List = []  # 代表一副牌，现在表示还没有牌，只是一个牌盒
+    list_poker = []  # 代表一副牌，现在表示还没有牌，只是一个牌盒
     for i in range(0, 52):
-        List.append(i)  # 按顺序往牌盒中放入52张牌
-    List = gen_pocker(List)  # 将牌盒中的牌打乱顺序
-    List1 = []  # 定义4个牌手
-    List2 = []
-    List3 = []
-    List4 = []
+        list_poker.append(i)  # 按顺序往牌盒中放入52张牌
+    list_poker = gen_pocker(list_poker)  # 将牌盒中的牌打乱顺序
+    list1 = []  # 定义4个牌手
+    list2 = []
+    list3 = []
+    list4 = []
     for i in range(0, 52):  # 实现发牌
         if i < 13:  # 打乱后的前13张牌发给牌手1，实现牌手1手牌中如何含有花色和数字
-            List1.append(getColor(List[i]) + str(getValue(List[i])))
+            list1.append(getColor(list_poker[i]) + str(getValue(list_poker[i])))
         elif i < 26:
-            List2.append(getColor(List[i]) + str(getValue(List[i])))
+            list2.append(getColor(list_poker[i]) + str(getValue(list_poker[i])))
         elif i < 39:
-            List3.append(getColor(List[i]) + str(getValue(List[i])))
+            list3.append(getColor(list_poker[i]) + str(getValue(list_poker[i])))
         else:
-            List4.append(getColor(List[i]) + str(getValue(List[i])))
-    print(List)
-    print("牌手1", List1)
-    print("牌手2", List2)
-    print("牌手3", List3)
-    print("牌手4", List4)
+            list4.append(getColor(list_poker[i]) + str(getValue(list_poker[i])))
+    print(list_poker)
+    print("牌手1", list1)
+    print("牌手2", list2)
+    print("牌手3", list3)
+    print("牌手4", list4)
 
 
 getPuk()
