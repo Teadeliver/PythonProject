@@ -4,6 +4,7 @@ class Card:
     SUITS = ['梅花', '方片', '红桃', '黑桃']
 
     # _init__()方法是一种特殊的方法，就是Java里的构造函数
+    # __str__()方法是一种重写的方法，类似于Java里的重写toString方法
     def __init__(self, rank, suit):  # self代表类的实例，而非类，类似于Java的This
         self.rank = rank  # 牌面数字1~13
         self.suit = suit  # 花色
@@ -55,12 +56,11 @@ class Hand:
         self.cards.append(card)
 
 
-# Poke类：一副牌
+# Poke类：一整副牌
 # 继承Hand类
 class Poke(Hand):
-    """Poke类代表一副牌，可以看做是有52张牌的牌手，所以继承Hand类。由于其中cards列表变量要存储52张牌
-    而且要发牌，洗牌，所以增加方法如下方法:"""
-
+    # Poke类代表一副牌，可以看做一个有52张牌的特殊牌手，所以继承Hand类
+    # 在Hand类中方法的基础上增加方法完成洗牌发牌等操作
     def populate(self):  # 生成一副牌,双循环按顺序生成，后续进行打乱
         for suit in Card.SUITS:
             for rank in Card.RANKS:
