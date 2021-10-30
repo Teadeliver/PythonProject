@@ -12,27 +12,6 @@ class Card:
     def __str__(self):  # 重写print()方法，打印一张牌的信息
         return self.suit + self.rank
 
-    def pic_order(self):  # 牌的顺序号,将牌面转换为数字顺序号
-        if self.rank == 'A':
-            face_num = 1
-        elif self.rank == 'J':
-            face_num = 11
-        elif self.rank == 'Q':
-            face_num = 12
-        elif self.rank == 'K':
-            face_num = 13
-        else:
-            face_num = int(self.rank)
-        if self.suit == '梅花':
-            suit = 1
-        elif self.suit == '方片':
-            suit = 2
-        elif self.suit == '红桃':
-            suit = 3
-        else:
-            suit = 4
-        return (suit - 1) * 13 + face_num
-
 
 # Hand类：一手牌
 class Hand:
@@ -44,13 +23,10 @@ class Hand:
         if self.cards:
             rep = ''
             for card in self.cards:
-                rep += str(card) + '\t'
+                rep += str(card) + ' \t'
         else:
             rep = '无牌'
         return rep
-
-    def clear(self):  # 清空手里的牌
-        self.cards = []
 
     def add(self, card):  # 增加手里的牌
         self.cards.append(card)
@@ -89,7 +65,6 @@ class Poke(Hand):
 # 在 if __name__ == 'main': 下的代码只有在第一种情况下（即文件作为脚本直接执行）才会被执行，
 # 而 import 到其他脚本中是不会被执行的。
 if __name__ == "__main__":  # 直接执行的话不用这句话也没事
-    print('This is a module with classes for playing cards.')
     players = [Hand(), Hand(), Hand(), Hand()]
     poke = Poke()
     poke.populate()  # 生成一副牌
